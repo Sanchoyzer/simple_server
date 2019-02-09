@@ -17,7 +17,8 @@ class HttpProcessor(BaseHTTPRequestHandler):
         input_val = param_dict.get('input_str')
         return input_val[0] if input_val is not None else None
 
-    def get_output_val(self, input_val):         
+    @staticmethod
+    def get_output_val(input_val):
         return sha512(input_val.encode('utf-8')).hexdigest() if input_val is not None else ''
 
     @staticmethod
@@ -25,7 +26,8 @@ class HttpProcessor(BaseHTTPRequestHandler):
         with open(LOG_PATH, 'a') as f:
             f.write(msg + '\n')
 
-    def log(self, msg):
+    @staticmethod
+    def log(msg):
         # задергаем диск уже на middleload
         # и пусть клиент ждет без асинхронщины
         # ведь это учебный пример :)
@@ -38,7 +40,7 @@ class HttpProcessor(BaseHTTPRequestHandler):
         self.send_header('Content-Type', 'application/json')
         self.end_headers()
         output_val = self.get_output_val(input_val)
-        self.wfile.write(dumps({'output_str' : output_val}).encode('utf-8'))
+        self.wfile.write(dumps({'output_str': output_val}).encode('utf-8'))
         self.log('in: "{}", out: "{}"'.format(input_val, output_val))
 
 
