@@ -1,4 +1,7 @@
-﻿from http.server import HTTPServer, BaseHTTPRequestHandler
+#!/home/alex/work/simple_server/venv/bin/python
+# -*- coding: utf-8 -*-
+
+from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 from json import dumps
 from hashlib import sha512
