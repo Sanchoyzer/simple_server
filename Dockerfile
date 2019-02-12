@@ -11,4 +11,4 @@ RUN \
 
 EXPOSE 8080
 
-ENTRYPOINT ["/usr/local/bin/python3", "-m", "server"]
+ENTRYPOINT ["/usr/local/bin/python3", "-m", "simple_server"]
