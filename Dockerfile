@@ -1,6 +1,6 @@
 FROM python:3.6-alpine
 
-ADD server /srv/src/server
+ADD simple_server /srv/src/simple_server
 ADD setup.py /srv/src/setup.py
 
 RUN \

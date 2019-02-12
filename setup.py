@@ -10,6 +10,6 @@ setup(
     author='noname',
     author_email='noname@nomame.no',
     platforms='any',
-    install_requires=[],
-    packages=['server'],
+    install_requires=['aiohttp', 'aiofiles'],
+    packages=['simple_server'],
 )
